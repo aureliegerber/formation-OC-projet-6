@@ -3,7 +3,7 @@ const uniqueValidator = require("mongoose-unique-validator");   // pour gérer p
 
 const userSchema = mongoose.Schema({    // schéma mongoose de données pour chaque utilisateur (id automatiquement généré par la BDD)
     email: {type: String, required: true, unique: true},    // unique pour empêcher plusieurs user avec la même adresse mail
-    passwword: {type: String, required: true}
+    password: {type: String, required: true},
 });
 
 userSchema.plugin(uniqueValidator); // appliquer le validator au schéma avant d'en faire un modèle
