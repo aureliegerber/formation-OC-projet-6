@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");   // importer mongoose
-const uniqueValidator = require("mongoose-unique-validator");   // pour gérer plus facilement les erreurs générées par défaut par MongoDB
+const uniqueValidator = require("mongoose-unique-validator");   // 2. pour gérer plus facilement les erreurs générées par défaut par MongoDB qui peuvent être illisibles
 
 const userSchema = mongoose.Schema({    // schéma mongoose de données pour chaque utilisateur (id automatiquement généré par la BDD)
-    email: {type: String, required: true, unique: true},    // unique pour empêcher plusieurs user avec la même adresse mail
+    email: {type: String, required: true, unique: true},    // 1. unique pour empêcher plusieurs user avec la même adresse mail
     password: {type: String, required: true},
 });
 
