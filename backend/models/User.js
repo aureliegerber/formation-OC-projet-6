@@ -1,11 +1,11 @@
-const mongoose = require("mongoose");   // importer mongoose
-const uniqueValidator = require("mongoose-unique-validator");   // 2. pour gérer plus facilement les erreurs générées par défaut par MongoDB qui peuvent être illisibles
+const mongoose = require("mongoose");
+const uniqueValidator = require("mongoose-unique-validator");
 
-const userSchema = mongoose.Schema({    // schéma mongoose de données pour chaque utilisateur (id automatiquement généré par la BDD)
-    email: {type: String, required: true, unique: true},    // 1. unique pour empêcher plusieurs user avec la même adresse mail
+const userSchema = mongoose.Schema({
+    email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
 });
 
-userSchema.plugin(uniqueValidator); // appliquer le validator au schéma avant d'en faire un modèle
+userSchema.plugin(uniqueValidator);
 
-module.exports = mongoose.model("User", userSchema);    // exporter le schéma en tant que modèle mongoose appelé User, le rendant disponible pour notre app express
+module.exports = mongoose.model("User", userSchema);

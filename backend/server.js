@@ -1,8 +1,8 @@
-const http = require("http");   // importer le package http de Node
-const app = require("./app");   // importer l'application
+const http = require("http");
+const app = require("./app");
 
 function normalizePort (val) {
-    const port = parseInt(val, 10); // convertir la chaine de caractères val en nombre en base 10
+    const port = parseInt(val, 10);
     if (isNaN(port)) {
         return val;
     }
@@ -14,13 +14,13 @@ function normalizePort (val) {
 
 const port = normalizePort(process.env.PORT || "3000");
 
-app.set("port", port);  // dire à l'application express sur quel port elle doit tourner
+app.set("port", port);
 
 function errorHandler (error) {
     if (error.syscall !== "listen") {
         throw error;
     }
-    const address = server.address();   // { address: '::', family: 'IPv6', port: 3000 }
+    const address = server.address();
     const bind = typeof address === "string" ? "pipe " + address : "port:" + port;
     switch (error.code) {
         case "EACCES":
@@ -36,7 +36,7 @@ function errorHandler (error) {
     }
 };
 
-const server = http.createServer(app);  // créer un server, cette méthode prend pour argument la fonction qui sera appelée à chaque requête reçue par le server
+const server = http.createServer(app);
 
 server.on("error", errorHandler);
 server.on("listening", function() {
@@ -45,4 +45,4 @@ server.on("listening", function() {
     console.log("Listening on " + bind);    
 });
 
-server.listen(port); // configurer le server pour qu'il écoute soit la variable d'environnement du port, soit le port 3000
+server.listen(port);

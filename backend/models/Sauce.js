@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");   // importer mongoose, nécessaire pour créer un schéma
+const mongoose = require("mongoose");
 
 const sauceSchema = mongoose.Schema({    
-    userId: {type: String, required: true},  // ou type: mongoose.Types.ObjectId ??
-    name: {type: String, required: true},       // sans name on ne pourra pas enregistrer une sauce dans la base de données
+    userId: {type: String, required: true},
+    name: {type: String, required: true},
     manufacturer: {type: String, required: true},
     description: {type: String, required: true},
     mainPepper: {type: String, required: true},
@@ -14,6 +14,4 @@ const sauceSchema = mongoose.Schema({
     usersDisliked: {type: [String], required: false},
 });
 
-module.exports = mongoose.model("Sauce", sauceSchema);      // pour exploiter le schéma précédent comme modèle (nom du modèle, schéma que l'on veut utiliser)
-
-// la méthode model transforme ce modèle en un modèle utilisable
+module.exports = mongoose.model("Sauce", sauceSchema);
