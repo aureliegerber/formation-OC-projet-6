@@ -134,5 +134,5 @@ exports.likeSauce = (req, res) => {
         sauce.save();
         res.status(201).json({message: "Like / Dislike updated"});
     })
-        .catch(error => res.status(400).json({error}));
+    .catch(error => res.status(400).json({error}));
 };
